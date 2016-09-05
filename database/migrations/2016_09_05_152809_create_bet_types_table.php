@@ -17,7 +17,7 @@ class CreateBetTypesTable extends Migration
         Schema::create("bet_types", function(Blueprint $table){
 
             $table->increments("id");
-            $table->string("name");
+            $table->string("name")->unique();
         });
     }
 
