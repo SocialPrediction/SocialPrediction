@@ -12,11 +12,11 @@ class UserMute extends Model
 
     public function blocker(){
 
-        $this->belongsTo('App\Models\User', 'blocker');
+        $this->morphedByMany('App\Models\User', 'blocker');
     }
 
     public function blockee(){
 
-        $this->belongsTo('App\Model\User', 'blockee');
+        $this->morphedByMany('App\Model\User', 'blockee');
     }
 }
