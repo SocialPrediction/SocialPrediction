@@ -30,4 +30,14 @@ class User extends Authenticatable
     public function type(){
         $this->belongsTo('App\Models\UserType');
     }
+
+    public function mutedUsers(){
+
+        $this->hasMany('App\Model\UserMute', 'blockee');
+    }
+
+    public function mutedBy(){
+
+        $this->hasMany('App\Model\UserMute', 'blocker');
+    }
 }
