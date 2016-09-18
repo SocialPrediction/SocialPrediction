@@ -28,16 +28,16 @@ class User extends Authenticatable
     ];
 
     public function type(){
-        $this->belongsTo('App\Models\UserType');
+        return $this->belongsTo('App\Models\UserType');
     }
 
     public function mutedUsers(){
 
-        $this->morphToMany('App\Models\UserMute', 'blockee');
+        return $this->morphToMany('App\Models\UserMute', 'blockee');
     }
 
     public function mutedBy(){
 
-        $this->morphToMany('App\Model\UserMute', 'blocker');
+        return $this->morphToMany('App\Model\UserMute', 'blocker');
     }
 }

@@ -11,6 +11,6 @@ class Alternative extends Model
 
     public function chosenBy(){
 
-        $this->hasMany('App\Models\Choice', 'alternative');
+        return $this->hasMany('App\Models\Choice', 'alternative');
     }
 }
