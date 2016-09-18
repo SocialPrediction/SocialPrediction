@@ -23,16 +23,27 @@ class Bet extends Model
     public function owner()
     {
 
-        $this->belongsTo('App\Models\User', 'owner');
+        return $this->belongsTo('App\Models\User', 'owner');
     }
 
     public function alternatives()
     {
 
-        $this->hasManyThrough(
+        return $this->hasManyThrough(
             'App\Models\Alternatives',
             'App\Models\Bet',
             'alternative',
+            'id',
+            'id');
+    }
+
+    public function comments()
+    {
+
+        return $this->hasManyThrough(
+            'App\Models\Comment',
+            'App\Models\BetComment',
+            'comment',
             'id',
             'id');
     }
