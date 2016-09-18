@@ -12,6 +12,6 @@ class Category extends Model
     public function bets()
     {
 
-        $this->hasMany('App\Models\Bet', 'category');
+        return $this->hasMany('App\Models\Bet', 'category');
     }
 }

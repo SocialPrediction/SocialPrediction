@@ -11,13 +11,13 @@ class Bet extends Model
     public function category()
     {
 
-        $this->belongsTo('App\Models\Category', 'category');
+        return $this->belongsTo('App\Models\Category', 'category');
     }
 
     public function type()
     {
 
-        $this->belongsTo('App\Models\BetType', 'type');
+        return $this->belongsTo('App\Models\BetType', 'type');
     }
 
     public function owner()

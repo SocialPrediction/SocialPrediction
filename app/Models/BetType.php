@@ -13,6 +13,6 @@ class BetType extends Model
     public function betsOfType()
     {
 
-        $this->hasMany('App\Models\Bet', 'type');
+        return $this->hasMany('App\Models\Bet', 'type');
     }
 }
