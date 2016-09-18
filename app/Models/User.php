@@ -53,4 +53,9 @@ class User extends Authenticatable
             'id',                   // id on the Users we are fetching
             'id');                  // this id
     }
+
+    public function comments(){
+
+        return $this->hasMany('App\Model\Comment', 'from');
+    }
 }
