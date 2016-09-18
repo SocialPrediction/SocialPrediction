@@ -27,17 +27,30 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function type(){
+    public function type()
+    {
         return $this->belongsTo('App\Models\UserType');
     }
 
-    public function mutedUsers(){
+    public function mutedUsers()
+    {
 
-        return $this->morphToMany('App\Models\UserMute', 'blockee');
+        return $this->hasManyThrough(
+            'App\Models\User',      // What we want returned
+            'App\Model\UserMute',   // What is in between
+            'blockee',              // foreign key on userMute
+            'id',                   // id on the Users we are fetching
+            'id');                  // this id
     }
 
-    public function mutedBy(){
+    public function mutedBy()
+    {
 
-        return $this->morphToMany('App\Model\UserMute', 'blocker');
+        return $this->hasManyThrough(
+            'App\Model\User',       // What we want returned
+            'App\Model\UserMute',   // What is in between
+            'blocker',              // foreign key on userMute
+            'id',                   // id on the Users we are fetching
+            'id');                  // this id
     }
 }
