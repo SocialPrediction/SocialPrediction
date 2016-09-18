@@ -25,4 +25,15 @@ class Bet extends Model
 
         $this->belongsTo('App\Models\User', 'owner');
     }
+
+    public function alternatives()
+    {
+
+        $this->hasManyThrough(
+            'App\Models\Alternatives',
+            'App\Models\Bet',
+            'alternative',
+            'id',
+            'id');
+    }
 }
