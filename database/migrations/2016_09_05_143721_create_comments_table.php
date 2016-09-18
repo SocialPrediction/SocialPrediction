@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->increments("id");
             $table->string("comment");
             $table->integer("from")->unsigned();
+            $table->timestamps();
         });
 
         Schema::table("comments", function(Blueprint $table){
