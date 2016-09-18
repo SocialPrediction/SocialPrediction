@@ -8,6 +8,7 @@ class UserType extends Model
 {
     //
     protected $timestamps = false;
+    protected $table = "user_types";
 
     public function users(){
 

@@ -8,6 +8,7 @@ class UserMute extends Model
 {
     //
     protected $timestamps = false;
+    protected $table = "user_mutes";
 
     public function blocker(){
 
