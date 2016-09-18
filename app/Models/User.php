@@ -33,11 +33,11 @@ class User extends Authenticatable
 
     public function mutedUsers(){
 
-        $this->hasMany('App\Model\UserMute', 'blockee');
+        $this->morphToMany('App\Models\UserMute', 'blockee');
     }
 
     public function mutedBy(){
 
-        $this->hasMany('App\Model\UserMute', 'blocker');
+        $this->morphToMany('App\Model\UserMute', 'blocker');
     }
 }
