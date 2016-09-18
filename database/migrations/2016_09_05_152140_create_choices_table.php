@@ -20,6 +20,7 @@ class CreateChoicesTable extends Migration
             $table->primary(["user", "alternative"]);
             $table->foreign("user")->references("id")->on("users");
             $table->foreign("alternative")->references("id")->on("alternatives");
+            $table->timestamps();
         });
     }
 

@@ -23,6 +23,7 @@ class CreateBetsTable extends Migration
             $table->integer("result")->unsigned()->nullable();
             $table->integer("category")->unsigned();
             $table->integer("owner")->unsigned();
+            $table->timestamps();
         });
 
         Schema::table("bets", function(Blueprint $table){
