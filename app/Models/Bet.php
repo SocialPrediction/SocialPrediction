@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Bet extends Model
 {
@@ -40,11 +41,8 @@ class Bet extends Model
     public function comments()
     {
 
-        return $this->hasManyThrough(
-            'App\Models\Comment',
-            'App\Models\BetComment',
-            'comment',
-            'id',
-            'id');
+        return DB::table('comments')->whereNotIn('id', function ($q) {
+            $q->select('from')->from('bet_comments');
+        })->get();
     }
 }
