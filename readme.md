@@ -21,3 +21,16 @@ Copy the contents of [this file](https://github.com/laravel/laravel/blob/master/
 and place it in a file called .env within the 'SocialPrediction' folder.
 
 Change the database credentials within '.env' to match yours.
+
+To run database migrations and seeds write 
+```
+php artisan migrate:refresh
+```
+
+To run tests write
+```
+vendor/phpunit/phpunit/phpunit
+```
+when you are in the root folder of the project
+
+
