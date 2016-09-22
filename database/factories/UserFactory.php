@@ -18,6 +18,10 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'user_type' => function () {
+            return factory(App\Models\UserType::class)->create()->id;
+        },
+        'karma' => $faker->numberBetween(1, 200),
         'remember_token' => str_random(10),
     ];
 });
