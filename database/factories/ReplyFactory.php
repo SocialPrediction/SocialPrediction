@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: daseel
- * Date: 2016-09-18
- * Time: 23:04
- */
+$factory->define(App\Reply::class, function (Faker\Generator $faker) {
+
+    return [
+        'comment' => function () {
+            return factory(App\Comment::class)->create()->id;
+        },
+        'to' => function () {
+            return factory(App\Comment::class)->create()->id;
+        }
+    ];
+});
