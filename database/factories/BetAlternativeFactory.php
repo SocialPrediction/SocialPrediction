@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: daseel
- * Date: 2016-09-18
- * Time: 23:04
- */
+$factory->define(App\Models\BetAlternative::class, function (Faker\Generator $faker) {
+
+    return [
+        'alternative' => function () {
+            return factory(App\Models\Alternative::class)->create()->id;
+        },
+        'bet' => function () {
+            return factory(App\Models\Bet::class)->create()->id;
+        },
+    ];
+});
