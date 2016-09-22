@@ -29,6 +29,6 @@ class UserTest extends TestCase
     {
 
         $this->assertTrue(App\Models\User::find(11)->name == 'Abigail');
-
+        $this->assertTrue(App\Models\User::all()->count() == 21);
     }
 }
