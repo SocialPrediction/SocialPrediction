@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: daseel
- * Date: 2016-09-18
- * Time: 23:04
- */
+$factory->define(App\BetComment::class, function (Faker\Generator $faker) {
+
+    return [
+        'bet' => function () {
+            return factory(App\Models\Bet::class)->create()-id;
+        },
+        'bet_comment' => function () {
+            return factory(App\Models\Comment::class)->create()->id;
+        }
+    ];
+});
