@@ -1,5 +1,5 @@
 <?php
-$factory->define(App\BetType::class, function (Faker\Generator $faker) {
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
