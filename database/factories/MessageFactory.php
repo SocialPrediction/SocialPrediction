@@ -5,14 +5,14 @@
  * Date: 2016-09-18
  * Time: 23:04
  */
-$factory->define(App\Message::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Message::class, function (Faker\Generator $faker) {
 
     return [
         'to' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
         },
         'from' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
         },
 
         'text' => $faker->paragraph
