@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reply extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "replies";
 
     public function to()

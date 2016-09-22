@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Alternative extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function chosenBy(){
 

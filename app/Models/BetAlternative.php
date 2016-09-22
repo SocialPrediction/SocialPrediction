@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BetAlternative extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "bet_alternatives";
 
     public function bet()

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserMute extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "user_mutes";
 
     public function blocker(){

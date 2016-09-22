@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserType extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "user_types";
 
     public function users(){

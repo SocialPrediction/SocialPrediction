@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BetComment extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "bet_comments";
 
     public function bet()

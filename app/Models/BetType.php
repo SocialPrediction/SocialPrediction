@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BetType extends Model
 {
     //
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = "bet_types";
 
     public function betsOfType()
