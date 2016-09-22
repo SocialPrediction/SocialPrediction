@@ -5,14 +5,14 @@
  * Date: 2016-09-18
  * Time: 23:04
  */
-$factory->define(App\UserMute::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\UserMute::class, function (Faker\Generator $faker) {
 
     return [
         'blocker' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
         },
         'blockee' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
         }
     ];
 });

@@ -1,11 +1,11 @@
 <?php
-$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
         'comment' => $faker->paragraph,
         'from' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
         }
     ];
 });

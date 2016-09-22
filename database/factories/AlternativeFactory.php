@@ -1,6 +1,6 @@
 <?php
 
-$factory->define(App\Alternative::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Alternative::class, function (Faker\Generator $faker) {
 
     return [
 
