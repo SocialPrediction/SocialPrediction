@@ -58,8 +58,18 @@ class UserTest extends TestCase
      */
     public function test()
     {
+        $this->baseTest();
+        $this->mutedUsersTest();
+    }
 
+    private function baseTest()
+    {
         $this->assertTrue(User::find(11)->name == 'Abigail');
         $this->assertTrue(User::all()->count() == $this->userCount);
+    }
+
+    private function mutedUsersTest()
+    {
+        $this->assertTrue(UserMute::all()->count() == 10);
     }
 }
