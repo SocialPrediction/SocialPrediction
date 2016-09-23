@@ -76,14 +76,18 @@ class UserTest extends TestCase
     {
         $this->assertTrue(UserMute::all()->count() == 10);
 
+
         //See if
-        foreach($this->blockers as $blocker){
-            $this->assertNotNull($blocker->mutedUsers());
+        foreach ($this->blockers as $blocker) {
+            foreach ($blocker->mutedUsers() as $muted) {
+                $this->assertTrue($muted instanceOf App\Models\User);
+            }
         }
 
-        foreach($this->blockees as $blockee){
-            $this->assertNotNull($blockee->mutedBy());
+        foreach ($this->blockees as $blockee) {
+            foreach ($blockee->mutedBy() as $muted) {
+                $this->assertTrue($muted instanceOf App\Models\User);
+            }
         }
-
     }
 }
