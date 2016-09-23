@@ -4,6 +4,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\UserMute;
 
 class UserTest extends TestCase
 {
@@ -12,13 +13,20 @@ class UserTest extends TestCase
     public function setup()
     {
         parent::setUp();
+        $this->setUpBaseusers();
+    }
 
+
+    private function setUpBaseusers()
+    {
         factory(User::class, 10)->create();
         factory(User::class)->create([
             'name' => 'Abigail',
         ]);
         factory(User::class, 10)->create();
     }
+
+
 
     /**
      * A basic functional test example.
