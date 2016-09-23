@@ -37,7 +37,7 @@ class User extends Authenticatable
 
         return $this->hasManyThrough(
             'App\Models\User',      // What we want returned
-            'App\Model\UserMute',   // What is in between
+            'App\Models\UserMute',   // What is in between
             'blockee',              // foreign key on userMute
             'id',                   // id on the Users we are fetching
             'id');                  // this id
@@ -47,8 +47,8 @@ class User extends Authenticatable
     {
 
         return $this->hasManyThrough(
-            'App\Model\User',       // What we want returned
-            'App\Model\UserMute',   // What is in between
+            'App\Models\User',       // What we want returned
+            'App\Models\UserMute',   // What is in between
             'blocker',              // foreign key on userMute
             'id',                   // id on the Users we are fetching
             'id');                  // this id
@@ -57,7 +57,7 @@ class User extends Authenticatable
     public function comments()
     {
 
-        return $this->hasMany('App\Model\Comment', 'from');
+        return $this->hasMany('App\Models\Comment', 'from');
     }
 
     public function messagesSent()
