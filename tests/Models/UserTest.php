@@ -3,6 +3,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 use App\Models\User;
 use App\Models\UserMute;
 
@@ -12,12 +13,14 @@ class UserTest extends TestCase
 
     private $userCount;
     private $blockers;
+    private $blockees;
 
     public function setup()
     {
 
         parent::setUp();
         $this->userCount = 0;
+        $this->blockees = new Collection();
         $this->setUpBaseusers();
         $this->setUpMutedUsers();
     }
@@ -44,7 +47,7 @@ class UserTest extends TestCase
 
             $this->userCount++;
             $u2 = factory(User::class)->create();
-
+            $this->blockees->push($u2);
             factory(UserMute::class)->create([
                 'blocker' => $u->id,
                 'blockee' => $u2->id
@@ -76,6 +79,10 @@ class UserTest extends TestCase
         //See if
         foreach($this->blockers as $blocker){
             $this->assertNotNull($blocker->mutedUsers());
+        }
+
+        foreach($this->blockees as $blockee){
+            $this->assertNotNull($blockee->mutedBy());
         }
 
     }
