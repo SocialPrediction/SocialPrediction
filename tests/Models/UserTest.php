@@ -11,6 +11,7 @@ class UserTest extends TestCase
     use DatabaseMigrations;
 
     private $userCount;
+    private $blockers;
 
     public function setup()
     {
@@ -39,7 +40,7 @@ class UserTest extends TestCase
     private function setUpMutedUsers()
     {
         $this->userCount += 10;
-        factory(User::class, 10)->create()->each(function ($u) {
+        $this->blockers = factory(User::class, 10)->create()->each(function ($u) {
 
             $this->userCount++;
             $u2 = factory(User::class)->create();
@@ -71,5 +72,11 @@ class UserTest extends TestCase
     private function mutedUsersTest()
     {
         $this->assertTrue(UserMute::all()->count() == 10);
+
+        //See if
+        foreach($this->blockers as $blocker){
+            $this->assertNotNull($blocker->mutedUsers());
+        }
+
     }
 }
