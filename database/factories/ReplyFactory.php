@@ -2,7 +2,7 @@
 $factory->define(App\Models\Reply::class, function (Faker\Generator $faker) {
 
     return [
-        'comment' => function () {
+        'id' => function () {
             return factory(App\Models\Comment::class)->create()->id;
         },
         'to' => function () {
