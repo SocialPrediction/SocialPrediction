@@ -9,6 +9,7 @@ class Reply extends Model
     //
     public $timestamps = false;
     protected $table = "replies";
+    public $incrementing = false;
 
     public function to()
     {
@@ -17,8 +18,8 @@ class Reply extends Model
 
     }
 
-    public function from()
+    public function comment()
     {
-        return $this->belongsTo('App\Models\Comment', 'from');
+        return $this->belongsTo('App\Models\Comment', 'id');
     }
 }
