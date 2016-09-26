@@ -16,14 +16,14 @@ class CreateRepliesTable extends Migration
         //
         Schema::create("replies", function(Blueprint $table){
 
-            $table->integer("comment")->unsigned();
+            $table->integer("id")->unsigned();
             $table->integer("to")->unsigned();
 
-            $table->primary(["comment", "to"]);
+            $table->primary(["id", "to"]);
         });
 
         Schema::table("replies", function(Blueprint $table){
-            $table->foreign("comment")->references("id")->on("comments");
+            $table->foreign("id")->references("id")->on("comments");
             $table->foreign("to")->references("id")->on("comments");
         });
     }
