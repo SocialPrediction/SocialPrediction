@@ -25,4 +25,16 @@ class CommentTest extends TestCase
             ]);
         });
     }
+
+    public function testFrom()
+    {
+        foreach ($this->withoutReplies as $withoutReply) {
+            foreach ($withoutReply->from() as $from)
+                $this->assertTrue($from instanceof App\Models\User);
+        }
+        foreach ($this->withReplies as $withReply) {
+            foreach ($withReply->from() as $from)
+                $this->assertTrue($from instanceof App\Models\User);
+        }
+    }
 }
