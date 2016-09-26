@@ -20,7 +20,7 @@ class Comment extends Model
         return $this->hasManyThrough(
             'App\Models\Comment',
             'App\Models\Reply',
-            'from',
+            'to',
             'id',
             'id');
 
