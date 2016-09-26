@@ -11,7 +11,7 @@ class Reply extends Model
     protected $table = "replies";
     public $incrementing = false;
 
-    public function to()
+    public function receivingComment()
     {
 
         return $this->belongsTo('App\Models\Comment', 'to');
