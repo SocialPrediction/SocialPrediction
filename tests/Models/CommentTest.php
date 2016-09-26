@@ -37,4 +37,18 @@ class CommentTest extends TestCase
                 $this->assertTrue($from instanceof App\Models\User);
         }
     }
+
+    public function testReplies()
+    {
+
+        foreach ($this->withoutReplies as $withoutReply) {
+            foreach ($withoutReply->replies() as $replies)
+                $this->assertEquals($replies->count(), 0);
+        }
+        foreach ($this->withReplies as $withReply) {
+            foreach ($withReply->replies() as $replies)
+                $this->assertNotEquals($replies->count(), 0);
+        }
+
+    }
 }
